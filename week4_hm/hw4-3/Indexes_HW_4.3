@@ -1,0 +1,24 @@
+HW_4.3
+
+The blog home page
+
+	
+	posts.find().sort('date', direction=-1).limit(10) ==> db.posts.ensureIndex({"date": -1})
+
+The page that displays blog posts by tag (http://localhost:8082/tag/whatever)
+
+	cursor = posts.find({'tags':tag}).sort('date', direction=-1).limit(10) ==> db.posts.ensureIndex({"tags": 1})
+
+	
+	db.posts.ensureIndex({"date" : -1, "tags": 1})
+
+	db.posts.dropIndex({"tags" : 1})
+
+	db.posts.find({'tags':'wrist'}).sort({'date' : -1}).limit(10).explain()
+
+The page that displays a blog entry by permalink (http://localhost:8082/post/permalink)
+
+	post = posts.find_one({'permalink':permalink}) ==> db.posts.ensureIndex({"permalink": 1})
+
+
+HW_4.4 - db.profile.find({"ns" : /school2.students/}).sort({millis:-1}).limit(2).pretty()
