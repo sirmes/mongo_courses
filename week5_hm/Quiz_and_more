@@ -1,0 +1,258 @@
+1) Using $sum
+
+Write an aggregation query to sum up the population (pop) by state and put the result in a field called population. Don't use a compound _id key (you don't need one and the quiz checker is not expecting one)
+
+db.zips.aggregate([ {$group: { _id: { "state":"$state" }, population:{$sum:"$pop"} } } ])
+
+db.zips.aggregate([ {$group: { _id: null, population:{$sum:"$pop"} } } ])
+
+db.zips.aggregate([{"$group": {"_id":"$state", "population":{$sum:"$pop"}}}])
+
+2) Using $avg
+
+Write an aggregation expression to calculate the average population of a zip code (postal code) by state. As before, the postal code is in the _id field and is unique. The collection is assumed to be called "zips" and you should name the key in the result set "average_pop".
+
+db.zips.aggregate([ {$group: {"_id":"$state", average_pop:{$avg:"$pop"} } } ])
+
+3) Using $addToSet - Creates an array containing on results
+
+db.zips.find({state:"CA",city:"PALO ALTO"})
+{ "city" : "PALO ALTO", "loc" : [ -122.149685, 37.444324 ], "pop" : 15965, "state" : "CA", "_id" : "94301" }
+
+Write an aggregation query that will return the postal codes that cover each city. The results should look like this:
+		{
+			"_id" : "CENTREVILLE",
+			"postal_codes" : [
+				"22020",
+				"49032",
+				"39631",
+				"21617",
+				"35042"
+			]
+		},
+
+db.zips.aggregate([ {$group: {"_id":"$state", postal_codes:{$addToSet:"$_id"} } } ])
+
+db.zips.aggregate([ {$group: {"_id":"$city", postal_codes:{$addToSet:"$_id"} } } ])
+
+4) Using $push - Creates an array without garantee it adds the element once (not unique)
+
+db.zips.aggregate([ {$group: {"_id":"$city", postal_codes:{$push:"$_id"} } } ])
+
+would you expect the following two queries to produce the same result or different results?
+db.zips.aggregate([{"$group":{"_id":"$city", "postal_codes":{"$push":"$_id"}}}])
+
+db.zips.aggregate([{"$group":{"_id":"$city", "postal_codes":{"$addToSet":"$_id"}}}])
+
+Trick: Same result but order in the array is different
+
+5) Using $max and $min
+
+db.zips.aggregate([{"$group":{"_id":"$city", "max_postl_code":{"$max":"$_id"}}}])
+
+db.zips.aggregate([{"$group":{"_id":null, "max_postl_code":{"$max":"$_id"}}}])
+
+db.zips.aggregate([{"$group":{"_id":null, "max_postl_code":{"$min":"$_id"}}}])
+
+Again thinking about the zip code database, write an aggregation query that will return the population of the postal code in each state with the highest population. It should return output that looks like this:
+
+{
+			"_id" : "WI",
+			"pop" : 57187
+		},
+		{
+			"_id" : "WV",
+			"pop" : 70185
+		},
+
+db.zips.aggregate([{"$group":{"_id":"$state", "pop":{"$max":"$pop"}}}])
+
+6) Double $group
+
+db.zips.aggregate([ {$group: {"_id": {state:"$state", city:"$city"}, population:{$sum:"$pop"} } }, 
+{$group: {_id: "$_id.state", average: {$avg:$population}} }
+]) 
+
+
+db.fun.insert({ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 })
+db.fun.insert({ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 })
+db.fun.insert({ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 })
+db.fun.insert({ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 })
+db.fun.insert({ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 })
+db.fun.insert({ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 })
+db.fun.insert({ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 })
+db.fun.insert({ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 })
+
+db.fun.aggregate([{$group:{_id:{a:"$a", b:"$b"}, c:{$max:"$c"}}}, {$group:{_id:"$_id.a", c:{$min:"$c"}}}])
+
+7) $project - It is 1:1 - Filter out stuff
+
+db.zips.aggregate([{"$project":{"_id":0, "state" : "$state", "city_name" : "$city"}}])
+
+Write an aggregation query with a single projection stage that will transform the documents in the zips collection from this:
+{
+	"city" : "ACMAR",
+	"loc" : [
+		-86.51557,
+		33.584132
+	],
+	"pop" : 6055,
+	"state" : "AL",
+	"_id" : "35004"
+}
+
+to documents in the result set that look like this:
+{
+	"city" : "acmar", //Trick is lowercase
+	"pop" : 6055,
+	"state" : "AL",
+	"zip" : "35004"
+}
+
+db.zips.aggregate([{"$project":{"_id":0, "city" : "$city", "pop" : "$pop", "state" : "$state", "zip" : "$_id"}}])
+
+db.zips.aggregate([{"$project":{"_id":0, "city" : 1, "pop" : 1, "state" : 1, "zip" : "$_id"}}])
+
+db.zips.aggregate([{$project:{_id:0, city:{$toLower:"$city"}, pop:1, state:1, zip:"$_id"}}])
+
+8) $match - Filter like a having from SQL - n:1
+
+db.zips.aggregate([{$match: {state: "NY"} }])
+
+db.zips.aggregate([{$match: {state: "NY"} }, {$group: {_id: "$city", population: {$sum: "$pop"}}} ])
+
+db.zips.aggregate([{$match: {state: "NY"} }, {$group: {_id: "$city", population: {$sum: "$pop"}}}, {$project: {_id:0, city:"$_id", population: "$population"}} ])
+
+db.zips.aggregate([{$match: {state: "NY"} }, {$group: {_id: "$city", population: {$sum: "$pop"}}}, {$project: {_id:0, city:1, population: 1}} ])
+
+
+Again, thinking about the zipcode collection, write an aggregation query with a single match phase that filters for zipcodes with greater than 100,000 people. You may need to look up the use of the $gt operator in the MongoDB docs. 
+
+db.zips.aggregate([{$match: {pop: {$gt:100000}} }])
+
+9) $sort
+
+
+db.zips.aggregate([{$match: {pop: {$gt:100000}} }, {$sort : {pop : 1}}])
+
+Write an aggregation query with just a sort stage to sort by (state, city), both ascending. Assume the collection is called zips.
+
+db.zips.aggregate([ {$sort : {state : 1, city: 1}} ])
+
+10) $limit and $skip
+
+db.zips.aggregate([{$match: {state: "NY"} }, {$group: {_id: "$city", population: {$sum: "$pop"}}}, {$project: {_id:0, city:1, population: 1}}, {$sort : {state : 1, city: 1}}, {$skip: 10}, {$limit: 2} ])
+
+db.zips.aggregate([   {$match:     {	 state:"NY"      }     },     {$group:      { 	 _id: "$city", 	 population: {$sum:"$pop"},      }     },     {$project:      { 	 _id: 0, 	 city: "$_id", 	 population: 1,      }     },     {$sort:      { 	 population:-1      }     },     {$limit: 5},     {$skip: 10}  ])
+
+11) Revisiting $first and $last
+
+db.fun.remove()
+
+db.fun.insert({ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 })
+db.fun.insert({ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 })
+db.fun.insert({ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 })
+db.fun.insert({ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 })
+db.fun.insert({ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 })
+db.fun.insert({ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 })
+db.fun.insert({ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 })
+db.fun.insert({ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 })
+
+db.fun.find()
+
+db.fun.aggregate([
+    {$match:{a:0}},
+    {$sort:{c:-1}}, 
+    {$group:{_id:"$a", c:{$first:"$c"}}}
+])
+
+12) $unwind - Unjoid an array
+
+db.people.insert({ "_id" : "Barack Obama", "likes" : [ "social justice", "health care", "taxes" ] })
+db.people.insert({ "_id" : "Mitt Romney", "likes" : [ "a balanced budget", "corporations", "binders full of women" ] })
+
+db.people.find()
+{ "_id" : "Barack Obama", "likes" : [ "social justice", "health care", "taxes" ] }
+{ "_id" : "Mitt Romney", "likes" : [ "a balanced budget", "corporations", "binders full of women" ] }
+
+db.people.aggregate([ {$unwind: "$likes"} ])
+
+db.people.aggregate([ {$unwind: "$likes"} ])
+
+13) $unwind example
+
+db.people.aggregate([ {$unwind: "$likes"},{$group :{"_id" : "$likes", count: {$sum:1}}} ])
+
+14) Double $unwind
+
+HW 5.1) DONE
+
+Now use the aggregation framework to calculate the author with the greatest number of comments. 
+
+To help you verify your work before submitting, the author with the least comments is Mariela Sherer and she commented 387 times. 
+
+db.posts.aggregate([ {$unwind: "$comments"}, {$group :{"_id" : "$comments.author", count: {$sum:1}}} ])
+
+db.posts.aggregate([ {$unwind: "$comments"}, {$group :{"_id" : { "author" : "$comments.author"}, count: {$sum:1}}} ])
+
+db.posts.aggregate([ {$unwind: "$comments"}, {$group :{"_id" : "$comments.author", count: {$sum:1}}}, {$sort: {count:1}} ])
+
+
+HW 5.2) NOT DONE
+
+Please calculate the average population of cities in California (abbreviation CA) and New York (NY) (taken together) with populations over 25,000. 
+
+For this problem, assume that a city name that appears in more than one state represents two separate cities. 
+
+Please round the answer to a whole number. 
+Hint: The answer for CT and NJ is 49749.
+
+db.zips.aggregate([ {$match: {state:{$in:['CA', 'NY']}}} ])
+
+db.zips.aggregate([ {$group:{_id : {"state" : "$state", "city" : "$city" , "Zip" : "$_id"}, "population":{$sum : "$pop"}}} ])
+
+db.zips.aggregate([ {$match:{state:{$in:['CT', 'NJ']}}}, {$group:{_id : {"state" : "$state", "city" : "$city"}, "population":{$sum : "$pop"}}}, {$match : {population : {$gt:25000}}} ])
+
+db.zips.aggregate([ {$match:{state:{$in:['CT', 'NJ']}}}, {$group:{_id : {"state" : "$state", "city" : "$city"}, "population":{$sum : "$pop"}}}, {$match : {population : {$gt:25000}}}, {$group:{_id:null, avg:{$avg:'$population'}}} ])
+
+db.zips.aggregate([ {$match:{state:{$in:['NY', 'CA']}}}, {$group:{_id : {"state" : "$state", "city" : "$city"}, "population":{$sum : "$pop"}}}, {$match : {population : {$gt:25000}}}, {$group:{_id:null, avg:{$avg:'$population'}}} ])
+
+
+HW 5.3) DONE
+
+./mongoimport -d stu_agg -c students --drop < ../../week5_hm/grades_5-3.js
+
+> use stu_agg
+
+db.students.aggregate([ {$unwind: "$scores"}])
+
+db.students.aggregate([ {$unwind: "$scores"}, {$match: {"scores.type": {$in:['exam','homework']}}} ])
+
+db.students.aggregate([ {$unwind: "$scores"}, {$match: {"scores.type": {$in:['exam','homework']}}}, {$group : {"_id" : "$class_id", "gpa" : {$sum: "$scores.score"}} } ])
+
+db.students.aggregate([ {$unwind: "$scores"}, {$match: {"scores.type": {$in:['exam','homework']}}}, {$group : {"_id" : {"student_id" : "$student_id", "class_id" : "$class_id"} , "gpa" : {$avg: "$scores.score"}} } ])
+
+db.students.aggregate([ {$unwind: "$scores"}, {$match: {"scores.type": {$in:['exam','homework']}}}, {$group : {"_id" : {"student_id" : "$student_id", "class_id" : "$class_id"} , "gpa" : {$avg: "$scores.score"}} }, {$group: {"_id" : "$_id.class_id", average: {$avg : "$gpa"}}} ])
+
+db.students.aggregate([ {$unwind: "$scores"}, {$match: {"scores.type": {$in:['exam','homework']}}}, {$group : {"_id" : {"student_id" : "$student_id", "class_id" : "$class_id"} , "gpa" : {$avg: "$scores.score"}} }, {$group: {"_id" : "$_id.class_id", average: {$avg : "$gpa"}}}, {$sort: {"average" : 1}} ])
+
+HW 5.4)
+
+project the first character and match records with first characters then do group.
+
+db.zips.aggregate([ {$project: { first_char: {$substr : ["$city",0,1]} } }	 ])
+
+db.zips.aggregate([ {$project: { first_char: {$substr : ["$city",0,1]}, "pop": "$pop" } }	 ])
+
+db.zips.aggregate([ {$project: { first_char: {$substr : ["$city",0,1]}, "pop": "$pop" }  }, {$match: {"first_char": {$in:['0','1','2','3','4','5','6','7','8','9']}}}	 ])
+
+db.zips.aggregate([ {$project: { first_char: {$substr : ["$city",0,1]}, "pop": "$pop" } }, {$match: {"first_char": {$in:['0','1','2','3','4','5','6','7','8','9']}}},
+{$group: {"_id" : null, sum: {$sum:"$pop"}} }	 ])
+
+
+
+
+
+
+
+
