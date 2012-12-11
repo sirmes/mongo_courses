@@ -1,0 +1,103 @@
+Fri Dec  7 10:30:05 [initandlisten] MongoDB starting : pid=94215 port=27017 dbpath=/Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1 64-bit 
+Fri Dec  7 10:30:05 [initandlisten] db version v1.8.2, pdfile version 4.5
+Fri Dec  7 10:30:05 [initandlisten] git version: 433bbaa14aaba6860da15bd4de8edf600f56501b
+Fri Dec  7 10:30:05 [initandlisten] build sys info: Darwin erh2.10gen.cc 9.6.0 Darwin Kernel Version 9.6.0: Mon Nov 24 17:37:00 PST 2008; root:xnu-1228.9.59~1/RELEASE_I386 i386 BOOST_LIB_VERSION=1_40
+Fri Dec  7 10:30:05 [initandlisten] waiting for connections on port 27017
+Fri Dec  7 10:30:05 [websvr] web admin interface listening on port 28017
+Fri Dec  7 10:30:05 [initandlisten] connection accepted from 127.0.0.1:62764 #1
+Fri Dec  7 10:30:05 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:05 [startReplSets] replSet info you may need to run replSetInitiate -- rs.initiate() in the shell -- if that is not already done
+Fri Dec  7 10:30:15 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:25 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:35 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:45 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:48 [initandlisten] connection accepted from 127.0.0.1:62770 #2
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:48 [conn2] assertion 13435 not master and slaveok=false ns:saks_api.delta_flag query:{ delta_flag: "inventory_delta_running" }
+Fri Dec  7 10:30:49 [initandlisten] connection accepted from 127.0.0.1:62773 #3
+Fri Dec  7 10:30:49 [conn3] end connection 127.0.0.1:62773
+Fri Dec  7 10:30:55 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:05 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:08 [initandlisten] connection accepted from 127.0.0.1:62779 #4
+Fri Dec  7 10:31:15 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:24 [conn4] replSet replSetInitiate admin command received from client
+Fri Dec  7 10:31:24 [conn4] replSet replSetInitiate config object parses ok, 3 members specified
+Fri Dec  7 10:31:24 [conn4] replSet replSetInitiate all members seem up
+Fri Dec  7 10:31:24 [conn4] ******
+Fri Dec  7 10:31:24 [conn4] creating replication oplog of size: 183MB...
+Fri Dec  7 10:31:24 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.ns, filling with zeroes...
+Fri Dec  7 10:31:24 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.ns, size: 16MB,  took 0.009 secs
+Fri Dec  7 10:31:24 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.0, filling with zeroes...
+Fri Dec  7 10:31:24 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.0, size: 16MB,  took 0.056 secs
+Fri Dec  7 10:31:25 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.1, filling with zeroes...
+Fri Dec  7 10:31:25 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.1, size: 32MB,  took 0.013 secs
+Fri Dec  7 10:31:25 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.2, filling with zeroes...
+Fri Dec  7 10:31:25 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs1/local.2, size: 256MB,  took 0.134 secs
+Fri Dec  7 10:31:28 [conn4] ******
+Fri Dec  7 10:31:28 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:28 [conn4] replSet info saving a newer config version to local.system.replset
+Fri Dec  7 10:31:28 [conn4] replSet replSetInitiate config now saved locally.  Should come online in about a minute.
+Fri Dec  7 10:31:28 [conn4] query admin.$cmd ntoreturn:1 command: { replSetInitiate: { _id: "m101", members: [ { _id: 0.0, host: "localhost:27017" }, { _id: 1.0, host: "localhost:27018" }, { _id: 2.0, host: "localhost:27019" } ] } } reslen:128 4413ms
+Fri Dec  7 10:31:38 [startReplSets] replSet STARTUP2
+Fri Dec  7 10:31:38 [ReplSetHealthPollTask] replSet info localhost:27018 is down (or slow to respond): still initializing
+Fri Dec  7 10:31:38 [ReplSetHealthPollTask] replSet info localhost:27019 is down (or slow to respond): still initializing
+Fri Dec  7 10:31:38 [replica set sync] replSet SECONDARY
+Fri Dec  7 10:31:38 [rs Manager] replSet can't see a majority, will not try to elect self
+Fri Dec  7 10:31:39 [conn4] end connection 127.0.0.1:62779
+Fri Dec  7 10:31:43 [initandlisten] connection accepted from 127.0.0.1:62804 #5
+Fri Dec  7 10:31:43 [conn5] end connection 127.0.0.1:62804
+Fri Dec  7 10:31:43 [initandlisten] connection accepted from 127.0.0.1:62806 #6
+Fri Dec  7 10:31:45 [initandlisten] connection accepted from 127.0.0.1:62808 #7
+Fri Dec  7 10:31:45 [initandlisten] connection accepted from 127.0.0.1:62809 #8
+Fri Dec  7 10:31:46 [ReplSetHealthPollTask] replSet info localhost:27018 is up
+Fri Dec  7 10:31:46 [ReplSetHealthPollTask] replSet info localhost:27019 is up
+Fri Dec  7 10:31:46 [ReplSetHealthPollTask] replSet member localhost:27018 STARTUP2
+Fri Dec  7 10:31:46 [ReplSetHealthPollTask] replSet member localhost:27019 STARTUP2
+Fri Dec  7 10:31:47 [rs Manager] replSet info electSelf 0
+Fri Dec  7 10:31:47 [rs Manager] replSet PRIMARY
+Fri Dec  7 10:31:48 [ReplSetHealthPollTask] replSet member localhost:27018 RECOVERING
+Fri Dec  7 10:31:48 [ReplSetHealthPollTask] replSet member localhost:27019 RECOVERING
+Fri Dec  7 10:32:10 [conn6] end connection 127.0.0.1:62806
+Fri Dec  7 10:32:18 [initandlisten] connection accepted from 127.0.0.1:62816 #9
+Fri Dec  7 10:32:19 [initandlisten] connection accepted from 127.0.0.1:62817 #10
+Fri Dec  7 10:32:19 [conn10] end connection 127.0.0.1:62817
+Fri Dec  7 10:32:19 [initandlisten] connection accepted from 127.0.0.1:62818 #11
+Fri Dec  7 10:32:19 [conn11] end connection 127.0.0.1:62818
+Fri Dec  7 10:32:19 [initandlisten] connection accepted from 127.0.0.1:62819 #12
+Fri Dec  7 10:32:19 [conn12] end connection 127.0.0.1:62819
+Fri Dec  7 10:32:19 [conn9] end connection 127.0.0.1:62816
+Fri Dec  7 10:32:20 [initandlisten] connection accepted from 127.0.0.1:62820 #13
+Fri Dec  7 10:32:20 [ReplSetHealthPollTask] replSet member localhost:27018 SECONDARY
+Fri Dec  7 10:32:21 [slaveTracking] building new index on { _id: 1 } for local.slaves
+Fri Dec  7 10:32:21 [slaveTracking] done for 0 records 0.015secs
+Fri Dec  7 10:32:21 [slaveTracking] update local.slaves  query: { _id: ObjectId('50c20c02ab5da6a7479ffaaf'), host: "127.0.0.1", ns: "local.oplog.rs" } 126ms
+Fri Dec  7 10:32:22 [initandlisten] connection accepted from 127.0.0.1:62825 #14
+Fri Dec  7 10:32:22 [ReplSetHealthPollTask] replSet member localhost:27019 SECONDARY
+Fri Dec  7 10:33:08 got kill or ctrl c or hup signal 15 (Terminated), will terminate after current cmd ends
+Fri Dec  7 10:33:08 [interruptThread] now exiting
+Fri Dec  7 10:33:08 dbexit: 
+Fri Dec  7 10:33:08 [interruptThread] shutdown: going to close listening sockets...
+Fri Dec  7 10:33:08 [interruptThread] closing listening socket: 5
+Fri Dec  7 10:33:08 [interruptThread] closing listening socket: 6
+Fri Dec  7 10:33:08 [interruptThread] closing listening socket: 7
+Fri Dec  7 10:33:08 [interruptThread] closing listening socket: 8
+Fri Dec  7 10:33:08 [interruptThread] removing socket file: /tmp/mongodb-27017.sock
+Fri Dec  7 10:33:08 [interruptThread] removing socket file: /tmp/mongodb-28017.sock
+Fri Dec  7 10:33:08 [interruptThread] shutdown: going to flush diaglog...
+Fri Dec  7 10:33:08 [interruptThread] shutdown: going to close sockets...
+Fri Dec  7 10:33:08 [interruptThread] shutdown: waiting for fs preallocator...
+Fri Dec  7 10:33:08 [interruptThread] shutdown: closing all files...
+Fri Dec  7 10:33:08 [conn2] end connection 127.0.0.1:62770
+Fri Dec  7 10:33:08 [conn7] end connection 127.0.0.1:62808
+Fri Dec  7 10:33:08 [conn8] end connection 127.0.0.1:62809
+Fri Dec  7 10:33:08 [conn1] end connection 127.0.0.1:62764
+Fri Dec  7 10:33:08 closeAllFiles() finished
+Fri Dec  7 10:33:08 [interruptThread] shutdown: removing fs lock...
+Fri Dec  7 10:33:08 dbexit: really exiting now

@@ -1,0 +1,138 @@
+Fri Dec  7 10:34:27 [initandlisten] MongoDB starting : pid=94314 port=27018 dbpath=/Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2 64-bit host=lm3000018147.s5at49.saksinc.com
+Fri Dec  7 10:34:27 [initandlisten] 
+Fri Dec  7 10:34:27 [initandlisten] ** WARNING: soft rlimits too low. rlimits set to 266 processes, 2560 files. Number of processes should be at least 1280 : 0.5 times number of files.
+Fri Dec  7 10:34:27 [initandlisten] db version v2.2.0, pdfile version 4.5
+Fri Dec  7 10:34:27 [initandlisten] git version: f5e83eae9cfbec7fb7a071321928f00d1b0c5207
+Fri Dec  7 10:34:27 [initandlisten] build info: Darwin bs-osx-106-x86-64-1.local 10.8.0 Darwin Kernel Version 10.8.0: Tue Jun  7 16:33:36 PDT 2011; root:xnu-1504.15.3~1/RELEASE_I386 i386 BOOST_LIB_VERSION=1_49
+Fri Dec  7 10:34:27 [initandlisten] options: { dbpath: "data/rs2", fork: true, logpath: "2.log", port: 27018, replSet: "m101", smallfiles: true }
+Fri Dec  7 10:34:27 [initandlisten] journal dir=/Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/journal
+Fri Dec  7 10:34:27 [initandlisten] recover : no journal files present, no recovery needed
+Fri Dec  7 10:34:27 [websvr] admin web console waiting for connections on port 28018
+Fri Dec  7 10:34:27 [initandlisten] waiting for connections on port 27018
+Fri Dec  7 10:34:27 [initandlisten] connection accepted from 10.32.161.190:62874 #1 (1 connection now open)
+Fri Dec  7 10:34:27 [rsStart] replSet I am localhost:27018
+Fri Dec  7 10:34:27 [rsStart] replSet STARTUP2
+Fri Dec  7 10:34:27 [rsHealthPoll] replSet member localhost:27017 is up
+Fri Dec  7 10:34:27 [rsHealthPoll] replSet member localhost:27017 is now in state STARTUP2
+Fri Dec  7 10:34:28 [rsSync] replSet SECONDARY
+Fri Dec  7 10:34:28 [initandlisten] connection accepted from 127.0.0.1:62879 #2 (2 connections now open)
+Fri Dec  7 10:34:28 [initandlisten] connection accepted from 127.0.0.1:62880 #3 (3 connections now open)
+Fri Dec  7 10:34:28 [conn2] end connection 127.0.0.1:62879 (1 connection now open)
+Fri Dec  7 10:34:29 [rsHealthPoll] replSet member localhost:27019 is up
+Fri Dec  7 10:34:29 [rsHealthPoll] replSet member localhost:27019 is now in state SECONDARY
+Fri Dec  7 10:34:29 [rsHealthPoll] replSet member localhost:27017 is now in state SECONDARY
+Fri Dec  7 10:34:29 [rsMgr] not electing self, localhost:27019 would veto
+Fri Dec  7 10:34:29 [rsMgr] not electing self, localhost:27019 would veto
+Fri Dec  7 10:34:29 [initandlisten] connection accepted from 127.0.0.1:62882 #4 (3 connections now open)
+Fri Dec  7 10:34:34 [conn3] replSet info voting yea for localhost:27017 (0)
+Fri Dec  7 10:34:35 [rsHealthPoll] replSet member localhost:27017 is now in state PRIMARY
+Fri Dec  7 10:34:36 [rsBackgroundSync] replSet syncing to: localhost:27017
+Fri Dec  7 10:34:37 [rsSyncNotifier] replset setting oplog notifier to localhost:27017
+Fri Dec  7 10:34:40 [conn3] end connection 127.0.0.1:62880 (2 connections now open)
+Fri Dec  7 10:34:40 [initandlisten] connection accepted from 127.0.0.1:62892 #5 (3 connections now open)
+Fri Dec  7 10:34:57 [conn4] end connection 127.0.0.1:62882 (2 connections now open)
+Fri Dec  7 10:34:57 [initandlisten] connection accepted from 127.0.0.1:62898 #6 (4 connections now open)
+Fri Dec  7 10:35:10 [conn5] end connection 127.0.0.1:62892 (2 connections now open)
+Fri Dec  7 10:35:10 [initandlisten] connection accepted from 127.0.0.1:62904 #7 (3 connections now open)
+Fri Dec  7 10:35:27 [conn6] end connection 127.0.0.1:62898 (2 connections now open)
+Fri Dec  7 10:35:27 [initandlisten] connection accepted from 127.0.0.1:62910 #8 (4 connections now open)
+Fri Dec  7 10:35:41 [conn7] end connection 127.0.0.1:62904 (2 connections now open)
+Fri Dec  7 10:35:41 [initandlisten] connection accepted from 127.0.0.1:62912 #9 (3 connections now open)
+Fri Dec  7 10:35:42 [initandlisten] connection accepted from 127.0.0.1:62918 #10 (4 connections now open)
+Fri Dec  7 10:35:42 [conn10] end connection 127.0.0.1:62918 (3 connections now open)
+Fri Dec  7 10:35:50 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.ns, filling with zeroes...
+Fri Dec  7 10:35:50 [FileAllocator] creating directory /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/_tmp
+Fri Dec  7 10:35:54 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.ns, size: 16MB,  took 3.491 secs
+Fri Dec  7 10:35:54 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.0, filling with zeroes...
+Fri Dec  7 10:35:56 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.0, size: 16MB,  took 1.931 secs
+Fri Dec  7 10:35:56 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.1, filling with zeroes...
+Fri Dec  7 10:35:56 [repl writer worker 1] build index saks_api.delta_flag { _id: 1 }
+Fri Dec  7 10:35:56 [repl writer worker 1] build index done.  scanned 0 total records. 0 secs
+Fri Dec  7 10:35:57 [conn8] end connection 127.0.0.1:62910 (2 connections now open)
+Fri Dec  7 10:35:57 [initandlisten] connection accepted from 127.0.0.1:62926 #11 (4 connections now open)
+Fri Dec  7 10:35:59 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs2/saks_api.1, size: 32MB,  took 3.448 secs
+Fri Dec  7 10:36:11 [conn9] end connection 127.0.0.1:62912 (2 connections now open)
+Fri Dec  7 10:36:11 [initandlisten] connection accepted from 127.0.0.1:62938 #12 (3 connections now open)
+Fri Dec  7 10:36:27 [conn11] end connection 127.0.0.1:62926 (2 connections now open)
+Fri Dec  7 10:36:27 [initandlisten] connection accepted from 127.0.0.1:62947 #13 (3 connections now open)
+Fri Dec  7 10:36:41 [conn12] end connection 127.0.0.1:62938 (2 connections now open)
+Fri Dec  7 10:36:41 [initandlisten] connection accepted from 127.0.0.1:62961 #14 (3 connections now open)
+Fri Dec  7 10:36:57 [conn13] end connection 127.0.0.1:62947 (2 connections now open)
+Fri Dec  7 10:36:57 [initandlisten] connection accepted from 127.0.0.1:62996 #15 (3 connections now open)
+Fri Dec  7 10:37:11 [conn14] end connection 127.0.0.1:62961 (2 connections now open)
+Fri Dec  7 10:37:11 [initandlisten] connection accepted from 127.0.0.1:63001 #16 (3 connections now open)
+Fri Dec  7 10:37:27 [conn15] end connection 127.0.0.1:62996 (2 connections now open)
+Fri Dec  7 10:37:27 [initandlisten] connection accepted from 127.0.0.1:63008 #17 (3 connections now open)
+Fri Dec  7 10:37:41 [conn16] end connection 127.0.0.1:63001 (2 connections now open)
+Fri Dec  7 10:37:41 [initandlisten] connection accepted from 127.0.0.1:63010 #18 (3 connections now open)
+Fri Dec  7 10:37:57 [conn17] end connection 127.0.0.1:63008 (2 connections now open)
+Fri Dec  7 10:37:57 [initandlisten] connection accepted from 127.0.0.1:63019 #19 (3 connections now open)
+Fri Dec  7 10:38:11 [conn18] end connection 127.0.0.1:63010 (2 connections now open)
+Fri Dec  7 10:38:11 [initandlisten] connection accepted from 127.0.0.1:63033 #20 (3 connections now open)
+Fri Dec  7 10:38:27 [conn19] end connection 127.0.0.1:63019 (2 connections now open)
+Fri Dec  7 10:38:27 [initandlisten] connection accepted from 127.0.0.1:63046 #21 (3 connections now open)
+Fri Dec  7 10:38:41 [conn20] end connection 127.0.0.1:63033 (2 connections now open)
+Fri Dec  7 10:38:41 [initandlisten] connection accepted from 127.0.0.1:63058 #22 (3 connections now open)
+Fri Dec  7 10:38:57 [conn21] end connection 127.0.0.1:63046 (2 connections now open)
+Fri Dec  7 10:38:57 [initandlisten] connection accepted from 127.0.0.1:63075 #23 (3 connections now open)
+Fri Dec  7 10:39:11 [conn22] end connection 127.0.0.1:63058 (2 connections now open)
+Fri Dec  7 10:39:11 [initandlisten] connection accepted from 127.0.0.1:63089 #24 (3 connections now open)
+Fri Dec  7 10:39:27 [conn23] end connection 127.0.0.1:63075 (2 connections now open)
+Fri Dec  7 10:39:27 [initandlisten] connection accepted from 127.0.0.1:63102 #25 (3 connections now open)
+Fri Dec  7 10:39:41 [conn24] end connection 127.0.0.1:63089 (2 connections now open)
+Fri Dec  7 10:39:41 [initandlisten] connection accepted from 127.0.0.1:63104 #26 (4 connections now open)
+Fri Dec  7 10:39:57 [conn25] end connection 127.0.0.1:63102 (2 connections now open)
+Fri Dec  7 10:39:57 [initandlisten] connection accepted from 127.0.0.1:63112 #27 (3 connections now open)
+Fri Dec  7 10:40:11 [conn26] end connection 127.0.0.1:63104 (2 connections now open)
+Fri Dec  7 10:40:11 [initandlisten] connection accepted from 127.0.0.1:63129 #28 (3 connections now open)
+Fri Dec  7 10:40:27 [conn27] end connection 127.0.0.1:63112 (2 connections now open)
+Fri Dec  7 10:40:27 [initandlisten] connection accepted from 127.0.0.1:63141 #29 (3 connections now open)
+Fri Dec  7 10:40:41 [conn28] end connection 127.0.0.1:63129 (2 connections now open)
+Fri Dec  7 10:40:41 [initandlisten] connection accepted from 127.0.0.1:63144 #30 (4 connections now open)
+Fri Dec  7 10:40:57 [conn29] end connection 127.0.0.1:63141 (2 connections now open)
+Fri Dec  7 10:40:57 [initandlisten] connection accepted from 127.0.0.1:63155 #31 (3 connections now open)
+Fri Dec  7 10:41:11 [conn30] end connection 127.0.0.1:63144 (2 connections now open)
+Fri Dec  7 10:41:11 [initandlisten] connection accepted from 127.0.0.1:63168 #32 (4 connections now open)
+Fri Dec  7 10:41:27 [conn31] end connection 127.0.0.1:63155 (2 connections now open)
+Fri Dec  7 10:41:27 [initandlisten] connection accepted from 127.0.0.1:63180 #33 (3 connections now open)
+Fri Dec  7 10:41:41 [conn32] end connection 127.0.0.1:63168 (2 connections now open)
+Fri Dec  7 10:41:41 [initandlisten] connection accepted from 127.0.0.1:63184 #34 (4 connections now open)
+Fri Dec  7 10:41:57 [conn33] end connection 127.0.0.1:63180 (2 connections now open)
+Fri Dec  7 10:41:57 [initandlisten] connection accepted from 127.0.0.1:63190 #35 (4 connections now open)
+Fri Dec  7 10:42:11 [conn34] end connection 127.0.0.1:63184 (2 connections now open)
+Fri Dec  7 10:42:11 [initandlisten] connection accepted from 127.0.0.1:63195 #36 (4 connections now open)
+Fri Dec  7 10:42:27 [conn35] end connection 127.0.0.1:63190 (2 connections now open)
+Fri Dec  7 10:42:27 [initandlisten] connection accepted from 127.0.0.1:63200 #37 (4 connections now open)
+Fri Dec  7 10:42:41 [conn36] end connection 127.0.0.1:63195 (2 connections now open)
+Fri Dec  7 10:42:41 [initandlisten] connection accepted from 127.0.0.1:63203 #38 (4 connections now open)
+Fri Dec  7 10:42:57 [conn37] end connection 127.0.0.1:63200 (2 connections now open)
+Fri Dec  7 10:42:57 [initandlisten] connection accepted from 127.0.0.1:63208 #39 (3 connections now open)
+Fri Dec  7 10:43:00 [conn38] end connection 127.0.0.1:63203 (2 connections now open)
+Fri Dec  7 10:43:00 [rsBackgroundSync] replSet db exception in producer: 10278 dbclient error communicating with server: localhost:27017
+Fri Dec  7 10:43:01 [rsHealthPoll] DBClientCursor::init call() failed
+Fri Dec  7 10:43:01 [rsHealthPoll] replSet info localhost:27017 is down (or slow to respond): DBClientBase::findN: transport error: localhost:27017 ns: admin.$cmd query: { replSetHeartbeat: "m101", v: 1, pv: 1, checkEmpty: false, from: "localhost:27018", $auth: {} }
+Fri Dec  7 10:43:01 [rsHealthPoll] replSet member localhost:27017 is now in state DOWN
+Fri Dec  7 10:43:01 [rsMgr] not electing self, localhost:27019 would veto
+Fri Dec  7 10:43:02 [conn39] replSet info voting yea for localhost:27019 (2)
+Fri Dec  7 10:43:03 [rsHealthPoll] replSet member localhost:27019 is now in state PRIMARY
+Fri Dec  7 10:43:04 got signal 15 (Terminated), will terminate after current cmd ends
+Fri Dec  7 10:43:04 [interruptThread] now exiting
+Fri Dec  7 10:43:04 dbexit: 
+Fri Dec  7 10:43:04 [interruptThread] shutdown: going to close listening sockets...
+Fri Dec  7 10:43:04 [interruptThread] closing listening socket: 6
+Fri Dec  7 10:43:04 [interruptThread] closing listening socket: 7
+Fri Dec  7 10:43:04 [interruptThread] closing listening socket: 8
+Fri Dec  7 10:43:04 [interruptThread] removing socket file: /tmp/mongodb-27018.sock
+Fri Dec  7 10:43:04 [interruptThread] shutdown: going to flush diaglog...
+Fri Dec  7 10:43:04 [interruptThread] shutdown: going to close sockets...
+Fri Dec  7 10:43:04 [interruptThread] shutdown: waiting for fs preallocator...
+Fri Dec  7 10:43:04 [interruptThread] shutdown: lock for final commit...
+Fri Dec  7 10:43:04 [interruptThread] shutdown: final commit...
+Fri Dec  7 10:43:04 [conn1] end connection 10.32.161.190:62874 (1 connection now open)
+Fri Dec  7 10:43:04 [conn39] end connection 127.0.0.1:63208 (1 connection now open)
+Fri Dec  7 10:43:04 [interruptThread] shutdown: closing all files...
+Fri Dec  7 10:43:04 [interruptThread] closeAllFiles() finished
+Fri Dec  7 10:43:04 [interruptThread] journalCleanup...
+Fri Dec  7 10:43:04 [interruptThread] removeJournalFiles
+Fri Dec  7 10:43:04 [interruptThread] shutdown: removing fs lock...
+Fri Dec  7 10:43:04 dbexit: really exiting now

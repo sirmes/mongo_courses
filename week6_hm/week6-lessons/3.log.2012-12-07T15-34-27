@@ -1,0 +1,93 @@
+Fri Dec  7 10:30:05 [initandlisten] MongoDB starting : pid=94221 port=27019 dbpath=/Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3 64-bit 
+Fri Dec  7 10:30:05 [initandlisten] db version v1.8.2, pdfile version 4.5
+Fri Dec  7 10:30:05 [initandlisten] git version: 433bbaa14aaba6860da15bd4de8edf600f56501b
+Fri Dec  7 10:30:05 [initandlisten] build sys info: Darwin erh2.10gen.cc 9.6.0 Darwin Kernel Version 9.6.0: Mon Nov 24 17:37:00 PST 2008; root:xnu-1228.9.59~1/RELEASE_I386 i386 BOOST_LIB_VERSION=1_40
+Fri Dec  7 10:30:05 [initandlisten] waiting for connections on port 27019
+Fri Dec  7 10:30:05 [websvr] web admin interface listening on port 28019
+Fri Dec  7 10:30:05 [initandlisten] connection accepted from 127.0.0.1:62763 #1
+Fri Dec  7 10:30:05 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:05 [startReplSets] replSet info you may need to run replSetInitiate -- rs.initiate() in the shell -- if that is not already done
+Fri Dec  7 10:30:15 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:25 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:35 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:45 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:30:55 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:05 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:15 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:24 [initandlisten] connection accepted from 127.0.0.1:62794 #2
+Fri Dec  7 10:31:25 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:35 [startReplSets] replSet can't get local.system.replset config from self or any seed (EMPTYCONFIG)
+Fri Dec  7 10:31:43 [initandlisten] connection accepted from 127.0.0.1:62805 #3
+Fri Dec  7 10:31:45 [startReplSets] trying to contact localhost:27017
+Fri Dec  7 10:31:45 [initandlisten] connection accepted from 127.0.0.1:62811 #4
+Fri Dec  7 10:31:45 [startReplSets] replSet got config version 1 from a remote, saving locally
+Fri Dec  7 10:31:45 [startReplSets] replSet info saving a newer config version to local.system.replset
+Fri Dec  7 10:31:45 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.ns, filling with zeroes...
+Fri Dec  7 10:31:45 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.ns, size: 16MB,  took 0.028 secs
+Fri Dec  7 10:31:46 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.0, filling with zeroes...
+Fri Dec  7 10:31:46 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.0, size: 16MB,  took 0.013 secs
+Fri Dec  7 10:31:46 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.1, filling with zeroes...
+Fri Dec  7 10:31:46 [startReplSets] replSet STARTUP2
+Fri Dec  7 10:31:46 [rs Manager] replSet can't see a majority, will not try to elect self
+Fri Dec  7 10:31:46 [replica set sync] ******
+Fri Dec  7 10:31:46 [replica set sync] creating replication oplog of size: 183MB...
+Fri Dec  7 10:31:47 [conn2] replSet RECOVERING
+Fri Dec  7 10:31:47 [conn2] replSet info voting yea for 0
+Fri Dec  7 10:31:47 [ReplSetHealthPollTask] replSet info localhost:27017 is up
+Fri Dec  7 10:31:47 [ReplSetHealthPollTask] replSet member localhost:27017 PRIMARY
+Fri Dec  7 10:31:47 [ReplSetHealthPollTask] replSet info localhost:27018 is up
+Fri Dec  7 10:31:47 [ReplSetHealthPollTask] replSet member localhost:27018 RECOVERING
+Fri Dec  7 10:31:47 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.1, size: 32MB,  took 1.034 secs
+Fri Dec  7 10:31:48 [FileAllocator] allocating new datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.2, filling with zeroes...
+Fri Dec  7 10:32:10 [conn3] end connection 127.0.0.1:62805
+Fri Dec  7 10:32:20 [FileAllocator] done allocating datafile /Users/samirmes/mongo_courses/week6_hm/week6-lessons/data/rs3/local.2, size: 256MB,  took 31.747 secs
+Fri Dec  7 10:32:21 [ReplSetHealthPollTask] replSet member localhost:27018 SECONDARY
+Fri Dec  7 10:32:21 [replica set sync] ******
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync pending
+Fri Dec  7 10:32:21 [replica set sync] replSet syncing to: localhost:27018
+Fri Dec  7 10:32:21 [replica set sync] building new index on { _id: 1 } for local.me
+Fri Dec  7 10:32:21 [replica set sync] done for 0 records 0.01secs
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync drop all databases
+Fri Dec  7 10:32:21 [replica set sync] dropAllDatabasesExceptLocal 1
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync clone all databases
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync cloning db: admin
+Fri Dec  7 10:32:21 [replica set sync] replauthenticate: no user in local.system.users to use for authentication
+replSet initial sync cloning db: saks_api
+Fri Dec  7 10:32:21 [replica set sync] replauthenticate: no user in local.system.users to use for authentication
+replSet initial sync query minValid
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync initial oplog application
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync finishing up
+Fri Dec  7 10:32:21 [replica set sync] replSet set minValid=50c20bd0:1
+Fri Dec  7 10:32:21 [replica set sync] building new index on { _id: 1 } for local.replset.minvalid
+Fri Dec  7 10:32:21 [replica set sync] done for 0 records 0secs
+Fri Dec  7 10:32:21 [replica set sync] replSet initial sync done
+Fri Dec  7 10:32:22 [replica set sync] replSet SECONDARY
+Fri Dec  7 10:33:08 [conn2] end connection 127.0.0.1:62794
+Fri Dec  7 10:33:08 [replica set sync] replSet syncThread: 10278 dbclient error communicating with server: localhost:27017
+Fri Dec  7 10:33:09 [ReplSetHealthPollTask] DBClientCursor::init call() failed
+Fri Dec  7 10:33:09 [ReplSetHealthPollTask] replSet info localhost:27017 is down (or slow to respond): DBClientBase::findOne: transport error: localhost:27017 query: { replSetHeartbeat: "m101", v: 1, pv: 1, checkEmpty: false, from: "localhost:27019" }
+Fri Dec  7 10:33:09 [conn4] replSet info voting yea for 1
+Fri Dec  7 10:33:10 [rs Manager] replSet not trying to elect self as responded yea to someone else recently
+Fri Dec  7 10:33:11 [ReplSetHealthPollTask] replSet member localhost:27018 PRIMARY
+Fri Dec  7 10:33:13 [conn4] end connection 127.0.0.1:62811
+Fri Dec  7 10:33:15 [ReplSetHealthPollTask] DBClientCursor::init call() failed
+Fri Dec  7 10:33:15 [ReplSetHealthPollTask] replSet info localhost:27018 is down (or slow to respond): DBClientBase::findOne: transport error: localhost:27018 query: { replSetHeartbeat: "m101", v: 1, pv: 1, checkEmpty: false, from: "localhost:27019" }
+Fri Dec  7 10:33:15 [rs Manager] replSet can't see a majority, will not try to elect self
+Fri Dec  7 10:33:17 got kill or ctrl c or hup signal 15 (Terminated), will terminate after current cmd ends
+Fri Dec  7 10:33:17 [interruptThread] now exiting
+Fri Dec  7 10:33:17 dbexit: 
+Fri Dec  7 10:33:17 [interruptThread] shutdown: going to close listening sockets...
+Fri Dec  7 10:33:17 [interruptThread] closing listening socket: 5
+Fri Dec  7 10:33:17 [interruptThread] closing listening socket: 6
+Fri Dec  7 10:33:17 [interruptThread] closing listening socket: 7
+Fri Dec  7 10:33:17 [interruptThread] closing listening socket: 8
+Fri Dec  7 10:33:17 [interruptThread] removing socket file: /tmp/mongodb-27019.sock
+Fri Dec  7 10:33:17 [interruptThread] removing socket file: /tmp/mongodb-28019.sock
+Fri Dec  7 10:33:17 [interruptThread] shutdown: going to flush diaglog...
+Fri Dec  7 10:33:17 [interruptThread] shutdown: going to close sockets...
+Fri Dec  7 10:33:17 [interruptThread] shutdown: waiting for fs preallocator...
+Fri Dec  7 10:33:17 [interruptThread] shutdown: closing all files...
+Fri Dec  7 10:33:17 [conn1] end connection 127.0.0.1:62763
+Fri Dec  7 10:33:17 closeAllFiles() finished
+Fri Dec  7 10:33:17 [interruptThread] shutdown: removing fs lock...
+Fri Dec  7 10:33:17 dbexit: really exiting now
