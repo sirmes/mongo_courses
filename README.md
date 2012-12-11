@@ -22,4 +22,14 @@ Sam
 
 sirmes@gmail.com
 
+=========== Playlist links
+
+Week 1 - https://www.youtube.com/playlist?list=PLOqwUgCzNJcsYtQeEEYf7l-lPr2pJ_Yf7
+Week 2 - http://www.youtube.com/playlist?list=PLNSYJxiE8nU-eSJT-NxqN_-KjAIefo7ub
+Week 3 - 
+Week 4 - 
+Week 5 - https://www.youtube.com/playlist?list=PLOqwUgCzNJcsC1ARX93IZZLf9k3rVRrCn&feature=view_all
+Week 6 - 
+
+
 
