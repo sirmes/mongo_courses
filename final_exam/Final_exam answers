@@ -1,0 +1,227 @@
+Final_exam answers
+
+1) Construct a query to calculate the number of messages sent by Andrew Fastow, CFO, to Jeff Skilling, the president. Andrew Fastow's email addess was andrew.fastow@enron.com. Jeff Skilling's email was jeff.skilling@enron.com. 
+
+For reference, the number of email messages from Andrew Fastow to 
+John Lavorato (john.lavorato@enron.com) was 1. 
+
+db.messages.find({"headers.From" : "andrew.fastow@enron.com"}).limit(2).pretty()
+
+db.messages.find({"headers.From" : "andrew.fastow@enron.com"}).count()
+
+db.messages.find({"headers.From" : "andrew.fastow@enron.com", "headers.To" : {$all : ["john.lavorato@enron.com"]}}).count()
+
+db.messages.find({"headers.From" : "andrew.fastow@enron.com", "headers.To" : {$all : ["jeff.skilling@enron.com"]}}).count()
+
+#3
+
+2) Turns out that the top channel is veronica.espinoza@enron.com to recipients@enron.com, with 2181 messages. But that is not very interesting, so your task is to figure out the second most popular pair of sender and recipient and indicate it below. 
+
+
+db.messages.aggregate({$unwind: "$headers.To"}, {$group : {_id : "$headers.From", emails : {$sum: 1}, toCount: {$sum: "$headers.To"} }})
+
+db.messages.aggregate({$unwind: "$headers.To"}, {$group : {_id : {"from": "$headers.From", "to" : "$headers.To"}, emails : {$sum: 1}}}, {$sort: {emails : -1}}, {$limit: 5})
+
+
+	"_id" : {
+				"from" : "susan.mara@enron.com",
+				"to" : "richard.shapiro@enron.com"
+			},
+			"emails" : 974
+		},
+
+3) Please add the email address "mrpotatohead@10gen.com" to the list of addresses in the "headers.To" array for the document with "headers.Message-ID" of "<8147308.1075851042335.JavaMail.evans@thyme>"
+
+db.messages.find({"headers.Message-ID" : "<8147308.1075851042335.JavaMail.evans@thyme>"}).pretty()
+
+db.messages.update({"headers.Message-ID" : "<8147308.1075851042335.JavaMail.evans@thyme>"}, {$push : {"headers.To" : "mrpotatohead@10gen.com"}})
+
+
+db.messages.find({"headers.Message-ID" : "<8147308.1075851042335.JavaMail.evans@thyme>"}).forEach(function(doc){db.messages_test.insert(doc);});
+
+db.messages_test.update({"headers.Message-ID" : "<8147308.1075851042335.JavaMail.evans@thyme>"}, {$push : {"headers.To" : "mrpotatohead@10gen.com"}})
+
+LM3000018147:final_exam samirmes$ python final3-validate.py 
+
+Welcome to the Final Exam, Problem 3 Checker. My job is to make sure you updated the doc correctly
+Tests Passed for Final 3. Your Final 3 validation code is 897h6723ghf25gd87gh28
+
+4) 
+
+mongoimport --host localhost --db blog --collection posts --type json --file posts.json --drop
+
+"comments" : [
+		{
+			"body" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+			"email" : "LkvwxBUa@LOPSfuBf.com",
+			"author" : "Tonia Surace"
+		},
+
+
+		add key called 'num_likes'
+
+5) 
+
+
+//Not match criteria
+db.fubar.insert({a:10, b:20, c:30})
+
+//Not match criteria
+db.fubar.insert({a:10001, b:5005, c:10})
+db.fubar.insert({a:10002, b:5006, c:10})
+db.fubar.insert({a:10003, b:5007, c:10})
+db.fubar.insert({a:10004, b:5008, c:10})
+db.fubar.insert({a:10005, b:5009, c:10})
+db.fubar.insert({a:10006, b:5004, c:10})
+
+//Matches criteria without sorting "needed"
+db.fubar.insert({a:9993, b:5005, c:0})
+db.fubar.insert({a:9994, b:5006, c:0})
+db.fubar.insert({a:9995, b:5007, c:0})
+db.fubar.insert({a:9996, b:5008, c:0})
+db.fubar.insert({a:9997, b:5009, c:0})
+db.fubar.insert({a:9998, b:5009, c:0})
+
+//Matches criteria with sorting "needed"
+db.fubar.insert({a:9993, b:5005, c:10})
+db.fubar.insert({a:9994, b:5006, c:10})
+db.fubar.insert({a:9995, b:5007, c:10})
+db.fubar.insert({a:9996, b:5008, c:10})
+db.fubar.insert({a:9997, b:5009, c:10})
+db.fubar.insert({a:9998, b:5009, c:10})
+
+//More data that match the criterias
+db.fubar.insert({a:9993, b:5005, c:10})
+db.fubar.insert({a:9994, b:5006, c:20})
+db.fubar.insert({a:9995, b:5007, c:30})
+db.fubar.insert({a:9996, b:5008, c:40})
+db.fubar.insert({a:9997, b:5009, c:50})
+db.fubar.insert({a:9998, b:5009, c:60})
+
+//More data that match the criterias
+db.fubar.insert({a:9993, b:5005, c:-10})
+db.fubar.insert({a:9994, b:5006, c:-20})
+db.fubar.insert({a:9995, b:5007, c:-30})
+db.fubar.insert({a:9996, b:5008, c:-40})
+db.fubar.insert({a:9997, b:5009, c:-50})
+db.fubar.insert({a:9998, b:5009, c:-60})
+
+//More data that don't match the criterias
+db.fubar.insert({a:11, b:21, c:30})
+db.fubar.insert({a:12, b:22, c:30})
+db.fubar.insert({a:13, b:23, c:30})
+db.fubar.insert({a:14, b:24, c:30})
+db.fubar.insert({a:15, b:25, c:30})
+db.fubar.insert({a:16, b:26, c:30})
+db.fubar.insert({a:17, b:27, c:30})
+db.fubar.insert({a:18, b:28, c:30})
+
+
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"ns" : "test.fubar",
+		"name" : "_id_"
+	},
+									DEFAULT ALREADY CREATED
+
+	{
+		"v" : 1,
+		"key" : {
+			"a" : 1,
+			"b" : 1
+		},
+		"ns" : "test.fubar",
+		"name" : "a_1_b_1"
+	},
+									db.fubar.ensureIndex({a: 1, b: 1})
+
+	{
+		"v" : 1,
+		"key" : {
+			"a" : 1,
+			"c" : 1
+		},
+		"ns" : "test.fubar",
+		"name" : "a_1_c_1"
+	},
+									db.fubar.ensureIndex({a: 1, c: 1})
+	{
+		"v" : 1,
+		"key" : {
+			"c" : 1
+		},
+		"ns" : "test.fubar",
+		"name" : "c_1"
+	},
+									db.fubar.ensureIndex({c: 1})
+	{
+		"v" : 1,
+		"key" : {
+			"a" : 1,
+			"b" : 1,
+			"c" : -1
+		},
+		"ns" : "test.fubar",
+		"name" : "a_1_b_1_c_-1"
+	}
+									db.fubar.ensureIndex({a:1, b:1, c: -1})
+]
+
+
+db.fubar.find({'a':{'$lt':10000}, 'b':{'$gt': 5000}}, {'a':1, 'c':1}).sort({'c':-1}).explain()
+
+//Indexes analyses
+//without data, used a_1_b_1
+//After added data, that meet the query criteria, used a_1_c_1
+//After added more data that doesn't mache query criteria used a_1_b_1
+
+7) 
+
+LM3000018147:final_exam samirmes$ ../mongodb/bin/mongoimport --host localhost --db music --collection albums --type json --file albums.json --drop
+connected to: localhost
+Sun Dec 16 13:54:04 dropping: music.albums
+Sun Dec 16 13:54:05 imported 1000 objects
+
+LM3000018147:final_exam samirmes$ ../mongodb/bin/mongoimport --host localhost --db music --collection images --type json --file images.json --drop
+connected to: localhost
+Sun Dec 16 13:54:24 dropping: music.images
+Sun Dec 16 13:54:27 		905190/4888890	18%
+Sun Dec 16 13:54:27 			18700	6233/second
+Sun Dec 16 13:54:30 		1899890/4888890	38%
+Sun Dec 16 13:54:30 			39000	6500/second
+Sun Dec 16 13:54:33 		2889690/4888890	59%
+Sun Dec 16 13:54:33 			59200	6577/second
+Sun Dec 16 13:54:36 		3854990/4888890	78%
+Sun Dec 16 13:54:36 			78900	6575/second
+Sun Dec 16 13:54:39 		4736990/4888890	96%
+Sun Dec 16 13:54:39 			96900	6460/second
+Sun Dec 16 13:54:39 imported 100000 objects
+
+Performance improvement:
+
+	db.albums.ensureIndex({"images" : 1})
+
+Manual check
+
+	db.albums.find({'images': {$all: [47487]}})
+
+Your task is to write a program to remove every image from the images collection that appears in no album. Or put another way, if an image does not appear in at least one album, it's an orphan and should be removed from the images collection. 
+
+Start by using mongoimport to import your albums.json and images.json collections. (Did you notice the links in the previous sentence?) 
+When you are done removing the orphan images from the collection, there should be 90,038 documents in the images collection. To prove you did it correctly, what is the sum of the _id fields from the images collection (you can get this by writing an aggregation query).
+
+
+db.images.find().count()
+
+Original :100000
+Expected: 90038
+Should delete: 9962
+
+New # => db.images.aggregate({$group : {_id : "_ids", _ids_sum : {$sum: "$_id"} }})
+
+	Original sum: 4999950000
+	New sum: 4499664274
